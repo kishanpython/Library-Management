@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<style type="text/css">
+    #behind{
+
+            background-color:black;
+            color:white;
+    }
+   th{
+    font-size: 20px;
+   } 
+   h1{
+    color:aquamarine;
+    font-size: 5vw;
+    font-family: cursive;
+   }
+   #shift{
+    margin-left: 1em;
+   }
+   #head{
+        color:#CA6F1E;
+   }
+
+</style>
+
+<script type="text/javascript" src="{% static 'js/book.js' %}"></script>
+
+{% endblock %}
+
+{% block body %}
+<div class=" container table-responsive"> 
+     <div class="row"> 
+    <br><br>
+        <center><h1>BOOKS DETAIL</h1></center><br>
+        <center><a href="{% url 'book:entry' %}" class="btn btn-primary btn-warning">Add New Record</a>
+        </center><br><br>
+        <table class="table  table-sm table-responsive" id="behind">  
+            <thead class="thead-dark" style="font-size: 15px;">  
+                <tr id="head">  
+                    <th>Book ID</th>  
+                    <th>Book Name</th>  
+                    <th>Book Author</th>  
+                    <th>Book Publisher</th>
+                    <th>Book Cost</th>  
+                    <th>Actions</th>  
+                </tr>  
+            </thead>  
+        <tbody>  
+    {% for book in book %}  
+        <tr>  
+            <td>{{ book.bid }}</td>  
+            <td>{{ book.bname }}</td>  
+            <td>{{ book.author }}</td>  
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.cost }}</td>  
+            <td>  
+                <a href="{% url 'book:edit' book.id %}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                <a id="shift" href="{% url 'book:delete' book.id %}" onclick="return confirm('Are you sure?')">Delete</a>  
+            </td>  
+        </tr>  
+    {% endfor %}  
+    </tbody>  
+    </table></div></div><br><br>  
+
+
+
+{% endblock %}  

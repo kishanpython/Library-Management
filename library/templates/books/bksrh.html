@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+<style type="text/css">
+	label{
+		color:black;
+		font-size:20px;
+	}
+	#shift{
+
+		margin-top: 7%;
+	}
+</style>
+<script type="text/javascript" src="{% static 'js/book.js' %}"></script>
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid" id="shift">
+	<div class="row" id="det">
+		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" ><br><br>
+			<center><h2 style="color:aquamarine;font-family:cursive;font-size:4vw;">SEARCH BOOK HERE</h2></center>
+			<center><h1 style="color:red">{{ msg }}</h1></center>
+		<form action=" " method="post">
+				{% csrf_token %}
+			<label>Book ID</label>
+			<input type="number" name="bookid" class="form-control" placeholder="Book id" required>
+			<center>
+			<br>
+			<input type="submit" class="btn btn-default btn-success" name="submit">
+			<input type="reset" class="btn btn-default btn-info " name="reset">
+			</center>
+		</form>		
+		</div>
+	</div>
+</div>
+
+{% endblock %}

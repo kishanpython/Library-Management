@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<style type="text/css">
+	#shift{
+		margin-top: 5%;
+
+	}
+	h3{
+		padding-left:5%;
+	}
+</style>
+<script type="text/javascript" src="{% static 'js/book.js' %}"></script>
+{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+<div class="row" id="det">
+<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="shift"><br><br>
+	<div class="well part_div">
+	  <center><h1 style="color:	rgb(208,0,0)">BOOK DETAILS</h1></center>
+		<h3><b>BOOK ID :</b>  {{ bk.bid}}</h3>
+		<h3><b>BOOK NAME :</b> {{ bk.bname}}</h3>
+		<h3><b>AUTHOR :</b> {{ bk.author }}</h3>
+		<h3><b>PUBLISHER :</b> {{ bk.publisher }}</h3>
+		<h3><b>COST :</b> ₹ {{ bk.cost}}</h3>
+		<h3><b>DESCRIPTION : </b><br>{{ bk.desc }}</h3><br>
+
+	 <a id="shf" class="btn btn-default btn-warning" href="{% url 'book:searchbk' %}">NEXT SEARCH</a>
+
+	</div>
+   </div>
+</div>
+</div>
+
+
+{% endblock %}

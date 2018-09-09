@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+<style type="text/css">
+	h4,li{
+		color:#0AD2E8;
+	}
+	#det{
+		margin-top: 14%;
+	}
+	#pro{
+
+       color:;
+
+	}
+	#shift{
+		margin-left:30px;
+	}
+	.check{
+		color:rgb(208,0,0);
+	}
+
+</style>
+<script type="text/javascript" src="{% static 'js/stlogin.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid" style="padding-left: calc(100vw - 100%);">
+	<br><br>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3  col-sm-10 col-sm-offset-1">
+		<br><br>
+			<div class="well part_div">
+				<center><h1 style="color:rgb(208,0,0);font-size:;">STUDENT DETAILS<h1></center>
+				<center><h3><b>STUDENT NAME:</b> {{ stu.firstname }} {{ stu.lastname }}</h3>
+				<center><h3><b>ROLL NUMBER:</b> {{ stu.rollno }}</h3></center>
+				<center><h3><b>EMAIL:</b> {{ stu.email }}</h3></center>
+				<center><h3><b>MOBILE NUMBER:</b> {{ stu.mobno }}</h3></center>
+				<center><h3><b>STUDENT ID:</b> {{ stu.studentid }}</h3></center></center></div>
+<!-- 
+				<center><a class="btn btn-default btn-info" href="{% url 'book:allocate' %}">Allocate Book</a>
+	 		
+	 			<a class="btn btn-default btn-info" href="#">Goto Student Login</a></center><br><br> -->	
+
+				<center> <h1 class="profil" style="color:orange;font-size: 40px;">ISSUED BOOKS </h1></center>
+
+					{% if length %}
+				 		{% for key,value in dit.items %}
+				 			<div class="well part_div" >
+				 				
+				 				<h3 id="shift" class="check"><b>Book Id:</b> {{ key.bid }} </h3>
+				 				<h3 id="shift"><b>Book Name:</b> {{ key.bname }} </b></h3>
+				 				<h3 id="shift"><b>Author :</b> {{key.author}}</h3>
+				 				<h3 id="shift"><b>Issue Date :</b> {{value}}</h3>
+								
+				 			</div>
+				 		
+
+                        {% endfor %}
+
+                     {% else %}
+                      <h3 style="color:white;font-family: cursive;font-size: 40px; " >No Book Is Issued Till Now</h3> 
+                    {% endif %}  
+	</div>
+</div>
+</div>
+
+{% endblock %}

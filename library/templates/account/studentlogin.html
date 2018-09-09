@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+
+<style type="text/css">
+    label{
+
+        color:black;
+        font-size: 20px;
+
+    }
+    #shift{
+    	margin-top:7%;
+    }
+
+</style>
+
+<script type="text/javascript" src="{% static 'js/student.js' %}"></script>
+</script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+<div class="row">
+
+	<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="shift">
+     <br><br>
+	<form action=" " method="post">
+		{% csrf_token %}
+		
+		<center><h1 style="color:aquamarine;font-family: cursive;font-size:3.5vw">STUDENT SEARCH</h1></center>
+		<center><h1 style="color:red">{{msg}}</h1></center>
+		<label>Student Id:</label>
+		<input type="text" name="sid" class="form-control" required placeholder="Student id"><br>
+		<center>
+			<input type="submit" class="btn btn-default btn-success" name="Login">
+			<input type="reset" name="Reset" class="btn btn-default btn-info ">
+		</center>
+
+        
+	</form>
+
+	
+</div>
+
+</div>
+</div>
+
+
+
+{% endblock %}

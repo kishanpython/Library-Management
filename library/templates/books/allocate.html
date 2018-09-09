@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+<style type="text/css">
+	label{
+		color:black;
+		font-size: 20px;
+	}
+	h1{
+		color:cyan;
+		font-family: cursive;
+
+	}
+
+ 	#shift{
+	 margin-top: 6%;
+	
+	}
+	#head{
+		 color:aquamarine;
+	 font-size:4vw;
+	}
+</style>
+
+<script type="text/javascript" src="{% static 'js/allocate.js' %}"></script>
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container" id="shift">
+	<div class="row">
+	<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1"><br><br>
+		<center><h1 id="head">ALLOCATE BOOK HERE</h1></center>
+		<h2 style="color:red">{{ msg }}</h2>
+		<form action=" " method="post" >
+			 {% csrf_token %}
+			<label>Student ID</label>
+			<input type="number" name="studentid" placeholder="Enter student id" class="form-control" required>
+			<label>Book ID</label>
+			<input type="number" name="bkid" required placeholder="Enter book id" class="form-control"><br>
+
+			<center>
+				<button class="btn btn-default btn-success" type="submit">Allocate</button>
+				<a href="{% url 'home:home' %}" class="btn btn-default btn-info">Goto Home</a>
+			</center>
+		</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

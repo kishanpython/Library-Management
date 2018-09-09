@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+
+<style type="text/css">
+    label{
+        color:black;
+        font-size: 20px;
+    }
+    textarea{
+        resize: none;
+    }
+
+</style>
+<script type="text/javascript" src="{% static 'js/book.js' %}"></script>
+{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-3 col-sm-10 col-sm-offset-1">
+            <br><br>
+            <center><h1 style="color:aquamarine;font-size: 4vw;font-family: cursive;">UPDATE</h1></center>
+            <form action="{% url 'book:update' book.id %}" method="post">
+                {% csrf_token %}
+
+                <label>Book Id:</label>
+                <input type="number" name="bid" class="form-control" required value="{{ book.bid }}" >
+                <label>Book Name</label>
+                <input type="text" name="bname" class="form-control" required value="{{ book.bname }}">
+                <label>Book Author</label>
+                <input type="text" name="author"  class="form-control" required value="{{book.author}}" >
+                <label>Book Publisher</label>
+                <input type="text" name="publisher" class="form-control" required value="{{ book.publisher }}">
+                <label>Book Cost</label>
+                <input type="number" name="cost" class="form-control" required value="{{ book.cost }}">
+                <label>Book Description</label><br>
+                 <textarea  name="desc" class="form-control">{{ book.desc }}</textarea>
+                <br>
+
+                <center>
+                    <input type="submit" class="btn btn-default btn-success" name="submit">
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+    
+
+
+{% endblock %}

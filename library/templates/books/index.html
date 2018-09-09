@@ -1,0 +1,57 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+
+<style type="text/css">
+    label{
+
+        color:black;
+        font-size: 20px;
+
+    }
+    textarea{
+        resize: none;
+    }
+</style>
+<script type="text/javascript" src="{% static 'js/book.js' %}"></script>
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-3 col-sm-10 col-sm-offset-1">
+            <br><br>
+            <center><h1 style="color:aquamarine;font-size:4vw;font-family: cursive;" >ADD BOOKS</h1></center>
+            <center><h1 style="color:red">{{ msg }}</h1></center>
+            <form action="{% url 'book:entry' %}" method="post">
+               {% csrf_token %} 
+                <label>Book Id</label>
+                <input type="number" name="bid" placeholder="Enter book id" class="form-control" required>
+                <label>Book Name</label>
+                <input type="text" name="bname" placeholder="Enter book name" class="form-control" required>
+                <label>Book Author</label>
+                <input type="text" name="author" placeholder="Enter book author" class="form-control" required>
+                <label>Book Publisher</label>
+                <input type="text" name="publisher" placeholder="Enter book publisher" class="form-control" required>
+                <label>Book Cost</label>
+                <input type="number" name="cost" placeholder="Enter book cost" class="form-control" required>
+                <label>Book Description</label><br>
+                 <textarea name="desc" rows="2" cols="57" class="form-control" placeholder="Write about book" ></textarea>
+                <br>
+                <center>
+                   <input type="submit" class="btn btn-default btn-success" name="Submit">
+                   <input type="reset" class="btn btn-default btn-info" name="Reset">
+                </center><br><br>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

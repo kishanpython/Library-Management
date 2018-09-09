@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<style>
+label{
+      color:black;
+      font-size: 1.3vw;
+	}
+	#shift{
+		margin-top:4%;
+	}
+</style>
+<script type="text/javascript" src="{% static 'js/register.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+<div class="row">
+
+	<div class="col-md-4 col-md-offset-4 col-sm-10 col-sm-offset-1" id="shift">
+     <br><br>
+     <center><h1 style="font-family:cursive;color:aquamarine;font-size:4vw;">LOGIN HERE</h1></center>
+	<form action=" " method="post">
+		{% csrf_token %}
+		<center><h3 style="color:red">{{ msg }}</h3></center>
+
+
+		<label>Username:</label>
+		<input type="text" name="username" class="form-control" required placeholder="Username"><br>
+		<label>Password:</label>
+		<input type="password" name="password" class="form-control" required placeholder="Password">
+        <br>
+		<center>
+			<input type="submit" class="btn btn-default btn-success" name="Login">
+			<input type="reset" name="Reset" class="btn btn-default btn-info ">
+		</center>
+
+        
+	</form>
+
+	
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

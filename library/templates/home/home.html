@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+<style type="text/css">
+	h1{
+		font-size:8vw;
+		color:#48C9B0;
+		margin-top: 16%;
+	}
+h2{
+	color:black;
+}
+</style>
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+
+{% endblock %}
+
+{% block body %}
+<h1>{{ msg }}</h1>
+<center><h1>𝓛𝓘𝓑𝓡𝓐𝓡𝓨</h1></center>
+<center><h2>The standard library saves programmers from having to reinvent the wheel.</h2></center>
+
+
+{% endblock %}
